@@ -14,9 +14,9 @@ author1 = Author.new('F.Scott Fitzerald', 'text_biography')
 author2 = Author.new('J. R. R. Tolkien', 'text_biography')
 author3 = Author.new('Mikhail Bulgakov', 'text_biography')
 
-library.add_author(author1)
-library.add_author(author2)
-library.add_author(author3)
+library.save(author1)
+library.save(author2)
+library.save(author3)
 
 book1 = Book.new('The Great Gatsby', author1)
 book2 = Book.new('The Lord of the Rings', author2)
@@ -24,11 +24,11 @@ book3 = Book.new('The Master and Margarita', author3)
 book4 = Book.new('Book 4', author3)
 book5 = Book.new('Book 5', author3)
 
-library.add_book(book1)
-library.add_book(book2)
-library.add_book(book3)
-library.add_book(book4)
-library.add_book(book5)
+library.save(book1)
+library.save(book2)
+library.save(book3)
+library.save(book4)
+library.save(book5)
 
 
 reader1 = Reader.new('Alexey', 'alexey@gmail.com')
@@ -42,11 +42,11 @@ reader4.set_address('Lviv', 'Green', '16')
 reader5 = Reader.new('Dmitriy', 'dima@gmail.com')
 reader5.set_address('Kyiv', 'Nezalezhna', '112')
 
-library.add_reader(reader1)
-library.add_reader(reader2)
-library.add_reader(reader3)
-library.add_reader(reader4)
-library.add_reader(reader5)
+library.save(reader1)
+library.save(reader2)
+library.save(reader3)
+library.save(reader4)
+library.save(reader5)
 
 order1 = Order.new(book1, reader1, '01/18/05')
 order2 = Order.new(book2, reader2, '02/19/05')
@@ -57,14 +57,14 @@ order6 = Order.new(book5, reader5, '06/18/05')
 order7 = Order.new(book5, reader5, '07/18/05')
 order8 = Order.new(book5, reader1, '08/18/05')
 
-library.add_order(order1)
-library.add_order(order2)
-library.add_order(order3)
-library.add_order(order4)
-library.add_order(order5)
-library.add_order(order6)
-library.add_order(order7)
-library.add_order(order8)
+library.save(order1)
+library.save(order2)
+library.save(order3)
+library.save(order4)
+library.save(order5)
+library.save(order6)
+library.save(order7)
+library.save(order8)
 
 puts "++++++++++++++++ROUND 1 ++++++++++++++++++++++++++"
 most_active_reader_finder = FindMostActiveReader.new(library)
@@ -92,7 +92,7 @@ library.write_to_yaml('library_backup.yaml')
 
 # puts "After recovering:"
 # puts "=============================="
-library = Library.restore_from_yaml('library_backup.yaml')
+# library = Library.restore_from_yaml('library_backup.yaml')
 # puts library.inspect
 
 
@@ -115,3 +115,7 @@ most_popular_books.each_with_index do |book, index|
 end
 
 puts "-----------------------------------"
+
+# library.save_books
+# library.read_books
+
