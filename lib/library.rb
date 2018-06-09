@@ -1,7 +1,6 @@
-require './save_data'
-
 class Library
-  include SaveData
+  include LibraryBackupManager
+  
   attr_accessor :books, :orders, :readers, :authors
 
   def initialize
@@ -27,5 +26,18 @@ class Library
     found_reader = readers.find { |reader| reader.name == reader_name }
     fail "reader #{reader_name} wasn't found!" unless found_reader
     found_reader
+  end
+
+  def save_resource(resourse)
+    case resourse.class.name
+    when 'Book'
+      books.push(resourse) unless books.include?(resourse)
+    when 'Order'
+      orders.push(resourse)
+    when 'Reader'
+      readers.push(resourse)
+    when 'Author'
+      authors.push(resourse)
+    end
   end
 end

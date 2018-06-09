@@ -1,5 +1,0 @@
-The Great Gatsby:#<Author:0x000000008f2730>
-The Lord of the Rings:#<Author:0x000000008f2708>
-The Master and Margarita:#<Author:0x000000008f26e0>
-Book 4:#<Author:0x000000008f26e0>
-Book 5:#<Author:0x000000008f26e0>
